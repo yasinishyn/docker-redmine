@@ -6,6 +6,7 @@ SYSCONF_TEMPLATES_DIR="${REDMINE_RUNTIME_DIR}/config"
 USERCONF_TEMPLATES_DIR="${REDMINE_DATA_DIR}/config"
 
 REDMINE_CONFIG="${REDMINE_INSTALL_DIR}/config/configuration.yml"
+REDMINE_CONFIG="${REDMINE_INSTALL_DIR}/config/secrets.yml"
 REDMINE_DATABASE_CONFIG="${REDMINE_INSTALL_DIR}/config/database.yml"
 REDMINE_UNICORN_CONFIG="${REDMINE_INSTALL_DIR}/config/unicorn.rb"
 REDMINE_MEMCACHED_CONFIG="${REDMINE_INSTALL_DIR}/config/additional_environment.rb"
@@ -790,6 +791,7 @@ install_configuration_templates() {
   echo "Installing configuration templates..."
 
   install_template ${REDMINE_USER}: redmine/configuration.yml ${REDMINE_CONFIG} 0640
+  install_template ${REDMINE_USER}: redmine/secrets.yml ${REDMINE_CONFIG} 0640
   install_template ${REDMINE_USER}: redmine/database.yml ${REDMINE_DATABASE_CONFIG} 0640
   install_template ${REDMINE_USER}: redmine/unicorn.rb ${REDMINE_UNICORN_CONFIG} 0644
 
