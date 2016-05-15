@@ -15,7 +15,6 @@ build:
 
 run:
 	@echo "Stargin in few minutes..."
-	@echo "Stargin on:" && docker-machine ip
 	@docker-compose up -d
 
 quickstart:
