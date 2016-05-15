@@ -11,14 +11,14 @@ help:
 	@echo "   5. make purge       - stop and remove the container"
 
 build:
-	@docker build --tag=sameersbn/redmine .
+	@docker build -t yasinishyn/redmine github.com/yasinishyn/docker-redmine
 
-release:
-	@docker build --tag=sameersbn/redmine:$(shell cat VERSION) .
+run:
+	@docker-compose up
 
 quickstart:
 	@echo "Starting redmine..."
-	@docker run --name=redmine-demo -d -p 10080:80 \
+	@docker run --name=dockerredmine_postgresql_1 -d -p 10080:80 \
 		-v /var/run/docker.sock:/run/docker.sock \
 		-v $(shell which docker):/bin/docker \
 		sameersbn/redmine:latest >/dev/null
@@ -28,11 +28,11 @@ quickstart:
 
 stop:
 	@echo "Stopping redmine..."
-	@docker stop redmine-demo >/dev/null
+	@docker stop dockerredmine_postgresql_1 >/dev/null
 
 purge: stop
 	@echo "Removing stopped container..."
-	@docker rm redmine-demo >/dev/null
+	@docker rm dockerredmine_postgresql_1 >/dev/null
 
 logs:
-	@docker logs -f redmine-demo
+	@docker logs -f dockerredmine_postgresql_1

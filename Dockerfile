@@ -1,5 +1,5 @@
 FROM sameersbn/ubuntu:14.04.20160504
-MAINTAINER sameer@damagehead.com
+MAINTAINER yasinishyn.a.n@gmail.com
 
 ENV REDMINE_VERSION=3.2.1 \
     REDMINE_USER="redmine" \
