@@ -14,7 +14,9 @@ build:
 	@docker build -t yasinishyn/redmine github.com/yasinishyn/docker-redmine
 
 run:
-	@docker-compose up
+	@echo "Stargin in few minutes..."
+	@echo "Stargin on:" && docker-machine ip
+	@docker-compose up -d
 
 quickstart:
 	@echo "Starting redmine..."
